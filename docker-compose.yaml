@@ -17,6 +17,8 @@ services:
 
   nginx-proxy:
     build: ./
+    ports:
+      - "80:80"
     networks:
       traffic-light:
 
