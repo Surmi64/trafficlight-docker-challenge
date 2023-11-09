@@ -25,10 +25,9 @@ WORKDIR /app
 
 COPY package*.json /app
 
-RUN apk update && apk add npm=7.17.0-r0
 RUN npm install
-
 RUN mkdir views
+
 COPY app.js .
 COPY index.pug /app/views/
 COPY favicon.ico /app/views/

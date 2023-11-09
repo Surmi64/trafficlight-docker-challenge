@@ -1,0 +1,28 @@
+version: "3"
+services:
+  red-app:
+    image: trafficlight-docker-challenge-red-app
+    networks:
+      traffic-light:
+
+  yellow-app:
+    image: trafficlight-docker-challenge-yellow-app
+    networks:
+      traffic-light:
+
+  green-app:
+    image: trafficlight-docker-challenge-green-app
+    networks:
+      traffic-light:
+
+  nginx-proxy:
+    build: ./
+    networks:
+      traffic-light:
+
+networks:
+  traffic-light:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.20.0.1/16"
